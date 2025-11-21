@@ -32,6 +32,7 @@
 #include <string>
 #include <time.h>
 #include <vector>
+#include <cstring>
 
 /* miniz.c v1.15 - public domain deflate/inflate, zlib-subset, ZIP reading/writing/appending, PNG writing
    See "unlicense" statement at the end of this file.
@@ -5103,7 +5104,7 @@ static inline tm safe_localtime(const time_t &t)
 #endif
 }
 
-static inline std::size_t write_callback(void *opaque, std::uint64_t file_ofs, const void *pBuf, std::size_t n)
+static inline std::size_t write_callback(void *opaque, mz_uint64 file_ofs, const void *pBuf, std::size_t n)
 {
     auto buffer = static_cast<std::vector<char> *>(opaque);
     
